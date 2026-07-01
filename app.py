@@ -44,12 +44,12 @@ def update_event(event_id):
     event = next((e for e in events if e.id == event_id), None)
     
     if not event: 
-        return ("Event not found", 204)
+        return ("Event not found", 404)
     if "title" in data:
         event.title = data["title"]
     
     # TODO: Task 4 - Return and Handle Results
-    return jsonify(event.to_dict())
+    return jsonify(event.to_dict()), 200
 
 # TODO: Task 1 - Define the Problem
 # Remove an event from the list
@@ -60,7 +60,7 @@ def delete_event(event_id):
     event = next((e for e in events if e.id == event_id), None)
     # TODO: Task 3 - Implement the Loop and Process Each Element
     if not event:
-        return ("Event not found", 204)
+        return ("Event not found", 404)
     events = [e for e in events if e.id != event_id]
     # TODO: Task 4 - Return and Handle Results
     return("Event deleted", 204)
