@@ -63,6 +63,6 @@ def delete_event(event_id):
         return ("Event not found", 204)
     events = [e for e in events if e.id != event_id]
     # TODO: Task 4 - Return and Handle Results
-
+    return("Event deleted", 204)
 if __name__ == "__main__":
     app.run(debug=True)
