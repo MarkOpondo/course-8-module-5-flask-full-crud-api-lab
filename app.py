@@ -41,7 +41,7 @@ def update_event(event_id):
     data = request.get_json()
     
     # TODO: Task 3 - Implement the Loop and Process Each Element
-    event = next((e for e in events id e.id == event_id), None)
+    event = next((e for e in events if e.id == event_id), None)
     
     if not event: 
         return ("Event not found", 204)
